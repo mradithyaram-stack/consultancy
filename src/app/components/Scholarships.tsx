@@ -48,8 +48,8 @@ export default function Scholarships() {
           >
             <div style={{ position: 'relative', width: '100%', maxWidth: '500px', height: '500px', borderRadius: '50%', overflow: 'hidden', border: '8px solid #1f242e', boxShadow: '0 0 50px rgba(217, 4, 41, 0.2)' }}>
               <img 
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800" 
-                alt="Excited Graduate" 
+                src="https://images.unsplash.com/photo-1584697964403-aa3b71b6b8ce?auto=format&fit=crop&w=900&q=80" 
+                alt="Scholarship Offer Celebration" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>

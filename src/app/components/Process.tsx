@@ -18,6 +18,15 @@ const steps = [
 export default function Process() {
   return (
     <section id="roadmap" className="section-padding" style={{ backgroundColor: '#05070a', position: 'relative', overflow: 'hidden', padding: '120px 0' }}>
+      {/* Floating support button for persistent action */}
+      <div style={{ position: 'fixed', right: '20px', bottom: '20px', zIndex: 999, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <button style={{ width: '58px', height: '58px', borderRadius: '50%', border: 'none', backgroundColor: '#d90429', color: '#fff', fontSize: '12px', fontWeight: 800, boxShadow: '0 10px 20px rgba(0,0,0,0.3)', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          TOP
+        </button>
+        <button style={{ width: '58px', height: '58px', borderRadius: '50%', border: 'none', backgroundColor: '#0f172a', color: '#fff', fontSize: '10px', fontWeight: 800, boxShadow: '0 10px 20px rgba(0,0,0,0.3)', cursor: 'pointer' }} onClick={() => window.alert('Need quick help? Please contact us via WhatsApp or contact form!')}>
+          ?
+        </button>
+      </div>
       {/* Background Stylings */}
       <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(217,4,41,0.08) 0%, transparent 70%)', filter: 'blur(60px)' }}></div>
       <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(43,45,66,0.3) 0%, transparent 70%)', filter: 'blur(70px)' }}></div>
@@ -134,6 +143,25 @@ export default function Process() {
               );
             })}
           </div>
+        </div>
+
+        <div style={{ marginTop: '5rem', padding: '3rem 2rem', backgroundColor: '#0b1221', border: '1px solid rgba(217,4,41,0.4)', borderRadius: '20px' }}>
+          <h3 style={{ color: '#fff', fontSize: '2rem', fontWeight: 800, marginBottom: '0.8rem' }}>Fast-Track Registration — All Countries Covered</h3>
+          <p style={{ color: '#94a3b8', fontSize: '1.1rem', maxWidth: '920px', margin: '0 auto 1.2rem', lineHeight: 1.7 }}>
+            One form, one admission strategy, full international coverage. Australia, Canada, USA, UK, New Zealand, Germany, Netherlands, and more — we process your profile in express mode with immediate prioritized shortlisting and a dedicated country-specific case manager.
+          </p>
+          <ul style={{ marginLeft: '1rem', color: '#cbd5e1', lineHeight: 1.8, fontSize: '1.05rem', maxWidth: '920px', margin: '0 auto' }}>
+            <li>Personalized country selection map in 48h</li>
+            <li>Document checklist + expert review within 24h</li>
+            <li>University matched to your score in 72h</li>
+            <li>Submission priority slot for fast response</li>
+            <li>Visa interview coaching + financial proof support</li>
+          </ul>
+          <a href="#contact" style={{ display: 'inline-block', marginTop: '1.5rem', padding: '14px 34px', backgroundColor: '#d90429', color: '#fff', borderRadius: '999px', fontWeight: 700, border: '2px solid #d90429', textDecoration: 'none', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 10px 18px rgba(217, 4, 41, 0.5)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = 'none'; }}>
+            Fast-Track Registration Form
+          </a>
         </div>
 
         <motion.div 
