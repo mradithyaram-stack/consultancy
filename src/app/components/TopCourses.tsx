@@ -26,12 +26,26 @@ const topCourses = [
   {
     icon: '🔐',
     title: 'Cybersecurity & Cloud Security',
-    matter: 'The cybersecurity workforce gap is growing. Our pathway focuses on CISSP, CISM, and SANS-aligned programs in the US, Canada, and UK where starting pay often exceeds $100,000.'
+    matter: 'The cybersecurity workforce gap is growing. Our pathway focuses on CISSP, CISM, and SANS-aligned programs in the US, Canada, and UK where starting pay often exceeds $100,000.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
   },
   {
     icon: '🌱',
     title: 'Sustainable Energy & Environmental Tech',
-    matter: 'Renewable energy, climate science, and sustainable engineering are top growth areas. Gain access to global research centers with project-led training and strong placement ties.'
+    matter: 'Renewable energy, climate science, and sustainable engineering are top growth areas. Gain access to global research centers with project-led training and strong placement ties.',
+    image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    icon: '🧬',
+    title: 'Biotechnology & Life Sciences',
+    matter: 'Break into research and development in gene therapy, pharma, and bioinformatics. Top universities in the UK and USA offer practical lab access and industry mentorship.',
+    image: 'https://images.unsplash.com/photo-1549562403-78c94f4f96a0?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    icon: '🖥️',
+    title: 'UX/UI & Product Design',
+    matter: 'Design the future through digital experience design, mobile app creativity and human-centered product strategy. High salaries and fast-track career mobility in North America and Europe.',
+    image: 'https://images.unsplash.com/photo-1533055640609-24b498cdfa20?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -72,9 +86,15 @@ export default function TopCourses() {
                 transition: 'all 0.3s ease'
               }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '1.5rem', background: '#fff', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
-                {course.icon}
-              </div>
+              {course.image ? (
+                <div style={{ width: '100%', height: '180px', overflow: 'hidden', borderRadius: '16px', marginBottom: '1rem' }}>
+                  <img src={course.image} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              ) : (
+                <div style={{ fontSize: '3rem', marginBottom: '1.5rem', background: '#fff', width: '80px', height: '80px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
+                  {course.icon}
+                </div>
+              )}
               <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0d1117', marginBottom: '1rem', lineHeight: 1.3 }}>
                 {course.title}
               </h3>

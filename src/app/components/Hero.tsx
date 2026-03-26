@@ -11,7 +11,7 @@ export default function Hero() {
       minHeight: '90vh',
       display: 'flex',
       alignItems: 'center',
-      background: 'linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.7) 100%), url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000") center/cover no-repeat',
+      background: 'linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.7) 100%), url("https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat',
       color: '#ffffff',
       overflow: 'hidden'
     }}>
