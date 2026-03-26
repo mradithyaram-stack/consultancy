@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swan Global | Study Abroad Consultants in Hyderabad</title>
+    <meta name="description" content="No.1 Consultant for Australia & New Zealand in Hyderabad.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #d90429;
+            --secondary-red: #ef233c;
+            --teal: #08726f;
+            --black: #0d1117;
+            --dark-grey: #2b2d42;
+            --light-grey: #f9fafb;
+            --white: #ffffff;
+            --border: #edf2f4;
+        }
+
+        * { box-sizing: border-box; padding: 0; margin: 0; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; overflow-x: hidden;}
+        body { background-color: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+        button { font-family: 'Poppins', sans-serif; } /* Reset buttons */
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 5rem 0; }
+        .section-title { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 3rem; letter-spacing: -0.02em; }
+        .text-gradient { background: linear-gradient(90deg, var(--primary-red), #ff4d6d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Buttons */
+        .btn-primary { background-color: var(--primary-red); color: var(--white); padding: 14px 28px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; border: none; cursor:pointer; box-shadow: 0 8px 20px rgba(217, 4, 41, 0.3); font-size: 1rem; }
+        .btn-primary:hover { background-color: var(--secondary-red); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(217, 4, 41, 0.4); }
+
+        .btn-teal { background-color: var(--teal); box-shadow: 0 8px 20px rgba(8, 114, 111, 0.3); }
+        .btn-teal:hover { background-color: #065b59; box-shadow: 0 12px 25px rgba(8, 114, 111, 0.4); }
+
+        /* Animation Classes */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Header & Mega Menus */
+        .header { position: sticky; top: 0; background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); transition: all 0.3s ease; padding: 15px 0; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 800; display: flex; gap: 8px; color: var(--black); }
+        .logo span { color: var(--primary-red); }
+        
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-item { position: relative; font-weight: 500; color: var(--dark-grey); cursor: pointer; padding: 10px 0; transition: 0.2s; }
+        .nav-item:hover { color: var(--primary-red); }
+        
+        .mega-menu { display: none; position: absolute; top: 100%; left: -100px; background: var(--white); width: 600px; padding: 2rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top: 3px solid var(--primary-red); opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+        .nav-item:hover .mega-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; opacity: 1; transform: translateY(0); }
+        
+        .countries-menu { width: 250px; left: -50px; display: none; flex-direction: column; gap: 10px; }
+        .nav-item:hover .countries-menu { display: flex; opacity: 1; transform: translateY(0); }
+        
+        .menu-card { padding: 15px; border-radius: 12px; transition: background 0.2s; color: var(--black); }
+        .menu-card:hover { background: var(--light-grey); color: var(--primary-red); }
+        .menu-card h4 { font-size: 1rem; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .menu-card:hover h4 { color: var(--primary-red); }
+        .menu-card p { font-size: 0.85rem; color: #555; }
+
+        /* Hero */
+        .hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.7) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover; color: var(--white); padding: 5rem 0; }
+        .hero-content { max-width: 650px; animation: slideUp 1s ease forwards; }
+        .hero-title { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2.5rem; color: #edf2f4; line-height: 1.6; }
+        .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 1. WHY CHOOSE US (ABOUT SECTION) */
+        .about-section { display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; }
+        .about-left { flex: 1 1 500px; position: relative; }
+        .about-left img { width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+        .exp-badge { position: absolute; bottom: -30px; right: -30px; background: var(--teal); color: #fff; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 15px 30px rgba(8, 114, 111, 0.3); border: 5px solid #fff; }
+        .exp-badge h3 { font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 5px; }
+        .about-right { flex: 1 1 500px; }
+        .about-right h5 { color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .about-right h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2; color: var(--black); }
+        .about-right p { color: #555; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 2rem; }
+        .feat-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--black); }
+        .feat-item span { color: var(--teal); font-size: 1.5rem; }
+
+        /* 2. PINNED ROADMAP TIMELINE */
+        .roadmap-container { position: relative; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; padding: 40px 20px; }
+        .roadmap-path { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; border-left: 4px dashed var(--teal); transform: translateX(-50%); z-index: 0; opacity: 0.5; }
+        
+        .road-row { display: flex; align-items: center; position: relative; z-index: 1; width: 100%; justify-content: space-between; }
+        .road-row:nth-child(even) { flex-direction: row-reverse; }
+        .road-dot { width: 24px; height: 24px; background: var(--teal); border-radius: 50%; position: absolute; left: 50%; transform: translateX(-50%); box-shadow: 0 0 0 6px rgba(8,114,111, 0.2); }
+        
+        .road-card-wrap { width: 45%; position: relative; }
+        .road-card { background: var(--teal); color: #fff; padding: 2.5rem; border-radius: 16px; transform: rotate(-3deg); position: relative; box-shadow: 0 15px 35px rgba(8, 114, 111, 0.25); transition: 0.3s ease; }
+        .road-row:nth-child(even) .road-card { transform: rotate(3deg); }
+        .road-card:hover { transform: rotate(0deg) translateY(-10px); box-shadow: 0 25px 45px rgba(8, 114, 111, 0.35); }
+        
+        .road-pin { position: absolute; top: -20px; left: 20px; font-size: 2.5rem; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4)); z-index: 2; transition: 0.3s ease;}
+        .road-row:nth-child(even) .road-pin { left: auto; right: 20px; }
+        .road-card:hover .road-pin { transform: scale(1.1) rotate(10deg); }
+
+        .road-num { font-size: 2.5rem; font-weight: 800; opacity: 0.9; margin-bottom: 5px; color: #f1c40f; } /* Yellow accent */
+        .road-head { font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
+        .road-desc { font-size: 1.05rem; opacity: 0.9; line-height: 1.6; margin-bottom: 25px; }
+        .road-btn { display: inline-block; padding: 10px 25px; background: transparent; border: 2px solid #fff; border-radius: 50px; color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; cursor: pointer;}
+        .road-btn:hover { background: #fff; color: var(--teal); }
+
+        /* 3. TOP COURSES (WITH IMAGES) */
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .course-box { position: relative; border-radius: 20px; overflow: hidden; height: 380px; transition: 0.4s; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 2px solid transparent; cursor: pointer;}
+        .course-box:hover { transform: translateY(-10px); border-color: var(--primary-red); box-shadow: 0 25px 50px rgba(217,4,41,0.2); }
+        .course-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: 0.6s;}
+        .course-box:hover .course-img { transform: scale(1.1); }
+        .course-grad { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13,17,23,0.95) 10%, rgba(13,17,23,0.3) 100%); z-index: -1; }
+        .course-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2.5rem 2rem; color: #fff; z-index: 1; }
+        .course-content h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        .course-content p { font-size: 0.95rem; color: #ccc; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
+        .course-badge { position: absolute; top: 20px; right: 20px; background: var(--primary-red); color: white; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; z-index: 1; }
+
+        /* Interactive Destinations */
+        .dest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .dest-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; position: relative; border: 3px solid transparent; }
+        .dest-card:hover { transform: scale(1.05); border-color: var(--primary-red); box-shadow: 0 20px 40px rgba(217,4,41,0.2); }
+        .dest-img { width: 100%; height: 180px; object-fit: cover; }
+        .dest-card .overlay { position: absolute; top:0; left:0; right:0; height: 180px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); }
+        .dest-card h3 { padding: 1.5rem; text-align: center; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        /* Scholarships */
+        .scholars-container { display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; background: var(--black); color: var(--white); padding: 5rem; border-radius: 30px; }
+        .scholars-content { flex: 1 1 500px; }
+        .scholars-image { flex: 1 1 400px; border-radius: 50%; border: 8px solid #1f242e; overflow: hidden; aspect-ratio: 1; min-height: 400px; background: #1f242e; }
+        .grant-box { background: #1f242e; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-red); margin-bottom: 1rem; }
+
+        /* Full Screen Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content { background: var(--white); width: 100%; max-width: 1000px; max-height: 90vh; border-radius: 24px; overflow-y: auto; position: relative; transform: scale(0.9) translateY(50px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+        
+        /* 🚨 EXTREMELY VISIBLE FIXED CLOSE BUTTON 🚨 */
+        .close-btn { position: fixed; top: 30px; right: 30px; background: #eb3636; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; border: 3px solid #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.4), 0 0 20px rgba(235,54,54,0.6); z-index: 100001; transition: 0.2s;}
+        .close-btn:hover { transform: scale(1.1); background: #ff4d4d; }
+        
+        .modal-hero { height: 250px; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .modal-hero img { position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+        .modal-hero .overlay-dark { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: -1; }
+        .modal-body { padding: 3rem; display: flex; flex-wrap: wrap; gap: 3rem; }
+        
+        .modal-left { flex: 1 1 400px; }
+        .modal-right { flex: 1 1 300px; }
+        .career-box { background: var(--light-grey); padding: 1.5rem; border-radius: 16px; border-left: 5px solid var(--primary-red); margin-bottom: 2rem; }
+        
+        /* 🚨 NEW: PROFESSIONAL VERTICAL TIMELINE ROADMAP 🚨 */
+        .timeline-vertical { border-left: 3px dashed var(--teal); padding-left: 30px; margin-left: 20px; position: relative; margin-top: 15px; }
+        .timeline-v-step { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 25px; position: relative; display:flex; align-items:center; }
+        .timeline-v-num { position: absolute; left: -49px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: var(--teal); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 4px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .timeline-v-text { font-weight: 600; font-size: 1.05rem; color: var(--black); }
+
+        .form-box { background: var(--black); padding: 2.5rem; border-radius: 24px; color: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .form-input { width: 100%; padding: 15px; border-radius: 8px; border: none; background: #1f242e; color: #fff; margin-bottom: 15px; font-family: 'Poppins'; outline: none; }
+        .form-input:focus { border: 1px solid var(--primary-red); }
+
+        /* Consultation Modal Specfic */
+        #consultModal .modal-content { max-width: 500px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-title { font-size: 3rem; }
+            .about-left img { margin-bottom: 40px; }
+            .roadmap-path { left: 30px; }
+            .road-row, .road-row:nth-child(even) { flex-direction: row; justify-content: flex-start; padding-left: 60px; }
+            .road-card-wrap { width: 100%; }
+            .road-dot { left: 30px; }
+            .road-card, .road-row:nth-child(even) .road-card { transform: rotate(0); margin-bottom: 20px; }
+            .modal-body { padding: 1.5rem; }
+            .scholars-container { padding: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">🎓 <span>SWAN</span> GLOBAL</a>
+            <nav class="nav-links">
+                <a href="#home" class="nav-item">Home</a>
+                
+                <!-- Mega Menu: Courses -->
+                <div class="nav-item">Courses ▾
+                    <div class="mega-menu">
+                        <div class="menu-card"><h4>💻 AI & Data Science</h4><p>High demand programs with massive OPT extensions.</p></div>
+                        <div class="menu-card"><h4>📊 Global MBA</h4><p>Executive networking and C-suite mentorship.</p></div>
+                        <div class="menu-card"><h4>🏥 Healthcare & Nursing</h4><p>Fast-track PR pathways globally.</p></div>
+                        <div class="menu-card"><h4>⚙️ Engineering</h4><p>Civil, Mechanical & Robotics with paid Co-ops.</p></div>
+                    </div>
+                </div>
+
+                <!-- Mega Menu: Countries -->
+                <div class="nav-item">Countries ▾
+                    <div class="mega-menu countries-menu">
+                        <a href="#countries" class="menu-card"><h4>🇦🇺 Australia</h4></a>
+                        <a href="#countries" class="menu-card"><h4>🇬🇧 United Kingdom</h4></a>
+                        <a href="#countries" class="menu-card"><h4>🇺🇸 United States</h4></a>
+                        <a href="#countries" class="menu-card"><h4>🇨🇦 Canada</h4></a>
+                        <a href="#countries" class="menu-card"><h4>🇳🇿 New Zealand</h4></a>
+                    </div>
+                </div>
+
+                <a href="#about" class="nav-item">About Us</a>
+                <a href="#roadmap" class="nav-item">Our Process</a>
+            </nav>
+            <button onclick="openConsultModal()" class="btn-primary desktop-btn">Book Free Consultation</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div class="hero-content">
+                <div style="background: rgba(217, 4, 41, 0.2); color: #ff4d6d; padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; border: 1px solid rgba(217, 4, 41, 0.4); display: inline-block;">
+                    Recognized Global Education Partner
+                </div>
+                <h1 class="hero-title">Study Abroad Experts <br/>in <span style="color: var(--primary-red);">Hyderabad</span></h1>
+                <p class="hero-subtitle">
+                    Fast-track your admission to Australia, UK, USA, Canada & New Zealand with transparent, end-to-end expert guidance. Start your global journey today.
+                </p>
+                <div class="hero-actions">
+                    <button onclick="openConsultModal()" class="btn-primary">Book Free Consultation</button>
+                    <a href="https://wa.me/919000329999" target="_blank" class="btn-primary btn-teal">WhatsApp Now 🟢</a>
+                </div>
+            </div>
+            
+            <div style="flex: 1 1 400px; text-align: right; animation: slideUp 1.5s ease forwards;">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600" style="border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 4px solid var(--primary-red); width: 100%; max-width: 450px;" alt="Student Excellence">
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (FIRSTLY) -->
+    <section id="about" class="section-padding fade-in" style="background: var(--light-grey);">
+        <div class="container about-section">
+            <div class="about-left">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" alt="Consultancy Team">
+                <div class="exp-badge">
+                    <h3>15+</h3>
+                    <p style="font-weight:600; font-size:1.1rem;">Years of<br>Trust</p>
+                </div>
+            </div>
+            <div class="about-right">
+                <h5>Why Choose Swan Global?</h5>
+                <h2>Your Absolute Partner in International Education</h2>
+                <p>We are a multi-award-winning study abroad consultancy rooted in Hyderabad. Unlike standard agencies, we heavily focus on deep student profiling to align your academic history with universities that guarantee massive ROI, scholarships, and exceptional post-study work rights (PSW).</p>
+                
+                <div class="about-features">
+                    <div class="feat-item"><span>✔️</span> 10,000+ Visas Processed</div>
+                    <div class="feat-item"><span>✔️</span> 500+ University Tie-ups</div>
+                    <div class="feat-item"><span>✔️</span> 100% Transparent Process</div>
+                    <div class="feat-item"><span>✔️</span> Free Profile Evaluation</div>
+                </div>
+
+                <a href="#roadmap" class="btn-teal btn-primary" style="margin-top: 10px;">Discover Our Roadmap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP TO DREAM COLLEGE (PINNED TIMELINE) -->
+    <section id="roadmap" class="section-padding fade-in">
+        <div class="container">
+            <div class="timeline-title-wrap" style="text-align:center; margin-bottom: 4rem;">
+                <h5 style="color:var(--dark-grey); font-weight:700; letter-spacing:2px; text-transform:uppercase;">Why Choose Us?</h5>
+                <h2 style="font-size: 2.8rem; font-weight:800; color:var(--teal); margin-top:5px;">Roadmap To Your Dream College</h2>
+                <p style="color:#555; max-width:700px; margin:0 auto; font-size:1.1rem; margin-top:15px;">We simplify complex international admissions into a massive, proven 8-step master framework guaranteeing your absolute success.</p>
+            </div>
+
+            <div class="roadmap-container">
+                <!-- Center Dashed Line -->
+                <div class="roadmap-path"></div>
+
+                <!-- Step 1 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">01</div>
+                            <h3 class="road-head">Profile Building & Evaluation</h3>
+                            <p class="road-desc">We conduct an in-depth profiling session to understand your academic strengths, deep interests, career goals, and exact financial capacity.</p>
+                            <button onclick="openConsultModal()" class="road-btn">Book A Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">02</div>
+                            <h3 class="road-head">University Selection</h3>
+                            <p class="road-desc">Based on your evaluation, we perfectly match you with elite global universities that maximize your scholarship chances and post-study opportunities.</p>
+                            <a href="#countries" class="road-btn">Explore Univs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">03</div>
+                            <h3 class="road-head">Applications & SOPs</h3>
+                            <p class="road-desc">Our expert editorial team writes highly compelling Statements of Purpose (SOPs) and handles the entire application paperwork flawlessly.</p>
+                            <button onclick="openConsultModal()" class="road-btn">Get Help</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">04</div>
+                            <h3 class="road-head">Applications & Submit</h3>
+                            <p class="road-desc">Flawless error-free application processing, ensuring all institutional deadlines and complex requirements are met.</p>
+                            <button onclick="openConsultModal()" class="road-btn">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">05</div>
+                            <h3 class="road-head">Interview Prep</h3>
+                            <p class="road-desc">Rigorous mock interviews and communication coaching specifically tailored for university admission committees.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">06</div>
+                            <h3 class="road-head">Financial & Loan Aid</h3>
+                            <p class="road-desc">Guidance on securing academic scholarships, education loans, and managing massive fund proofs securely.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">07</div>
+                            <h3 class="road-head">Visa Processing</h3>
+                            <p class="road-desc">Comprehensive visa documentation, compelling cover letters, and intensive mock visa interview sessions.</p>
+                            <button onclick="openConsultModal()" class="road-btn">Start Visa Process</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="road-row">
+                    <div class="road-dot"></div>
+                    <div class="road-card-wrap">
+                        <div class="road-card">
+                            <div class="road-pin">📌</div>
+                            <div class="road-num">08</div>
+                            <h3 class="road-head">Pre & Post Departure</h3>
+                            <p class="road-desc">Essential extensive checklist covering accommodation, forex cards, packing guides, and on-ground local networking support.</p>
+                            <a href="#countries" class="road-btn">Explore Univs</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP COURSES (WITH PICTURES) -->
+    <section class="section-padding fade-in" style="background-color: var(--black); color: #fff;">
+        <div class="container">
+            <h4 style="color: var(--primary-red); font-weight: 700; text-align:center; letter-spacing: 1px; text-transform: uppercase;">Future-Proof Careers</h4>
+            <h2 class="section-title" style="margin-bottom: 3rem; color:#fff;">Top Courses in <span class="text-gradient">High Demand</span></h2>
+            
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-box" onclick="openCourseModal(0)">
+                    <div class="course-badge">High ROI</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800" class="course-img" alt="Data Science">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Data Science & AI</h3>
+                        <p>Gain massive STEM-designated OPT extensions (up to 3 years) in the USA. Average starting salaries exceed $90,000+ globally.</p>
+                    </div>
+                </div>
+
+                <!-- Course 2 (Fixed Picture) -->
+                <div class="course-box" onclick="openCourseModal(1)">
+                    <div class="course-badge">Executive Level</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" class="course-img" alt="MBA">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Global MBA Programs</h3>
+                        <p>Gain pristine networking opportunities, C-suite mentorship, and phenomenal post-study work visas across Canada and the UK.</p>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-box" onclick="openCourseModal(2)">
+                    <div class="course-badge">Fast-Track PR</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=800" class="course-img" alt="Healthcare">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Healthcare & Nursing</h3>
+                        <p>Enjoy highly secure, rapid permanent residency paths in Australia and New Zealand alongside extraordinary global demand.</p>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-box" onclick="openCourseModal(3)">
+                    <div class="course-badge">Paid Co-ops</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800" class="course-img" alt="Engineering">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Core Engineering</h3>
+                        <p>World-class facilities leading to guaranteed paid internships and phenomenal corporate placement success.</p>
+                    </div>
+                </div>
+
+                <!-- Course 5 (New) -->
+                <div class="course-box" onclick="openCourseModal(4)">
+                    <div class="course-badge">Top Careers</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="course-img" alt="Business Analytics">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Business Analytics</h3>
+                        <p>One of the most rapidly expanding fields. Blend big data with business strategy for leadership roles globally.</p>
+                    </div>
+                </div>
+
+                <!-- Course 6 (New) -->
+                <div class="course-box" onclick="openCourseModal(5)">
+                    <div class="course-badge">Global Access</div>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=800" class="course-img" alt="Hospitality">
+                    <div class="course-grad"></div>
+                    <div class="course-content">
+                        <h3>Hospitality & Tourism</h3>
+                        <p>Study in the world's most beautiful destinations and gain highly transferrable skills for an international lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINATIONS (INTERACTIVE MODALS) -->
+    <section id="countries" class="section-padding fade-in" style="background-color: var(--light-grey);">
+        <div class="container">
+            <h4 style="color: var(--primary-red); font-weight: 700; text-align:center; letter-spacing: 1px; text-transform: uppercase;">Global Opportunities</h4>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Choose Your <span class="text-gradient">Dream Destination</span></h2>
+            <p style="text-align:center; max-width: 600px; margin: 0 auto 3rem auto; color:#555;">Click any country below to view specific roadmaps, post-study work rights, and fast-track registration details!</p>
+            
+            <div class="dest-grid" id="destGrid"></div>
+        </div>
+    </section>
+
+    <!-- ALUMNI STATS BANNER -->
+    <section id="alumni-stats" class="fade-in" style="background-color: var(--white); padding: 4rem 20px 2rem 20px;">
+        <div class="container" style="background-color: #f5c536; border-radius: 30px; padding: 3rem 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; box-shadow: 0 15px 35px rgba(245, 197, 54, 0.25);">
+            <!-- Stat 1 -->
+            <div style="flex: 1 1 200px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">👤</div>
+                <h3 style="color: var(--teal); font-size: 2.2rem; font-weight: 800; margin-bottom: 5px;">15 + Years</h3>
+                <p style="color: #333; font-weight: 600; font-size: 1.05rem; margin: 0;">Serving overseas students</p>
+            </div>
+            <!-- Stat 2 -->
+            <div style="flex: 1 1 200px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">💳</div>
+                <h3 style="color: var(--teal); font-size: 2.2rem; font-weight: 800; margin-bottom: 5px;">50 K</h3>
+                <p style="color: #333; font-weight: 600; font-size: 1.05rem; margin: 0;">Success Stories</p>
+            </div>
+            <!-- Stat 3 -->
+            <div style="flex: 1 1 200px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📖</div>
+                <h3 style="color: var(--teal); font-size: 2.2rem; font-weight: 800; margin-bottom: 5px;">25 Million</h3>
+                <p style="color: #333; font-weight: 600; font-size: 1.05rem; margin: 0;">USD+ In Scholarships</p>
+            </div>
+            <!-- Stat 4 -->
+            <div style="flex: 1 1 200px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📒</div>
+                <h3 style="color: var(--teal); font-size: 2.2rem; font-weight: 800; margin-bottom: 5px;">8 / 10</h3>
+                <p style="color: #333; font-weight: 600; font-size: 1.05rem; margin: 0;">Scholarships guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS STORIES -->
+    <section id="success-stories" class="section-padding fade-in" style="background-color: var(--white); padding-top: 2rem;">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--dark-grey); font-size: 3rem; font-weight: 800; margin-bottom: 4rem;">
+                What Our <span style="color: var(--primary-red);">Students Say</span>
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+                <!-- Card 1 -->
+                <div style="background: #f8f9fa; padding: 2.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150" alt="Rajesh" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-red);">
+                        <div>
+                            <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--black); margin-bottom: 2px;">Rajesh</h4>
+                            <div style="color: var(--primary-red); font-size: 0.85rem; font-weight: 600;">Placed in Australia</div>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-size: 1.05rem; line-height: 1.7; font-style: italic;">
+                        "Swan Global made my dream of studying in Australia a reality. Their visa process is flawless."
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div style="background: #f8f9fa; padding: 2.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Priya" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-red);">
+                        <div>
+                            <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--black); margin-bottom: 2px;">Priya</h4>
+                            <div style="color: var(--primary-red); font-size: 0.85rem; font-weight: 600;">Placed in USA</div>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-size: 1.05rem; line-height: 1.7; font-style: italic;">
+                        "They helped me secure admission into a top-tier US university. The counseling was exceptionally helpful."
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div style="background: #f8f9fa; padding: 2.5rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?auto=format&fit=crop&q=80&w=150" alt="Aman" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-red);">
+                        <div>
+                            <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--black); margin-bottom: 2px;">Aman</h4>
+                            <div style="color: var(--primary-red); font-size: 0.85rem; font-weight: 600;">Placed in New Zealand</div>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-size: 1.05rem; line-height: 1.7; font-style: italic;">
+                        "Affordable and fast! I'm now exploring PR options in NZ thanks to their expert advice."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHOLARSHIPS -->
+    <section class="section-padding fade-in">
+        <div class="container scholars-container">
+            <div class="scholars-content">
+                <h4 style="color: var(--primary-red); font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Fund Your Dream</h4>
+                <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1;">Secure Up To <span style="color: var(--primary-red);">100% Scholarships</span></h2>
+                <p style="color: #a1a1aa; font-size: 1.1rem; margin-bottom: 2rem;">Studying abroad doesn't have to break the bank. We match your academic profile with exclusive university grants, government bursaries, and merit-based tuition waivers.</p>
+                
+                <div class="grant-box">
+                    <h4 style="font-size:1.2rem; margin-bottom:5px;">Merit Scholarships</h4>
+                    <p style="color: #a1a1aa; font-size:0.9rem;">Up to $20,000 for outstanding grades.</p>
+                </div>
+                <div class="grant-box" style="border-color:#25D366;">
+                    <h4 style="font-size:1.2rem; margin-bottom:5px;">Vice-Chancellor's Award</h4>
+                    <p style="color: #a1a1aa; font-size:0.9rem;">50% to 100% full tuition waivers.</p>
+                </div>
+            </div>
+            <!-- FIXED SCHOLARSHIP IMAGE & ADDED LAZY LOADING -->
+            <img loading="lazy" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800" class="scholars-image" alt="Graduate">
+        </div>
+    </section>
+
+
+
+    <!-- CALL TO ACTION LEAD -->
+    <section class="section-padding fade-in" style="background-color: var(--primary-red); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Let Education Shape Your Future!</h2>
+            <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2.5rem; opacity: 0.9;">Secure your admission with Swan Global today.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="openConsultModal()" class="btn-primary" style="background-color: var(--black);">Book Free Consultation</button>
+                <a href="tel:+919000329999" class="btn-primary" style="background-color: var(--white); color: var(--primary-red);">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (CONTACT & COPYRIGHT) -->
+    <footer style="background-color: var(--black); color: #ccc; border-top: 1px solid #1f242e; padding: 4rem 0 2rem 0;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+            <div>
+                <a href="#" class="logo" style="color: #fff; margin-bottom: 1rem; display:block;">🎓 <span style="color:var(--primary-red);">SWAN</span> GLOBAL</a>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">Your ultimate study abroad partner in Hyderabad. Securing futures with transparent, expert-led admission strategies.</p>
+                <div style="display:flex; gap:10px;">
+                    <a href="#" style="background:#1f242e; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; transition:0.3s;" onmouseover="this.style.background='var(--primary-red)'" onmouseout="this.style.background='#1f242e'">FB</a>
+                    <a href="#" style="background:#1f242e; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; transition:0.3s;" onmouseover="this.style.background='var(--primary-red)'" onmouseout="this.style.background='#1f242e'">IG</a>
+                    <a href="#" style="background:#1f242e; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; transition:0.3s;" onmouseover="this.style.background='var(--primary-red)'" onmouseout="this.style.background='#1f242e'">LI</a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem;">Quick Links</h3>
+                <ul style="display:flex; flex-direction:column; gap:10px; font-size:0.95rem;">
+                    <li><a href="#home" style="transition:0.3s;" onmouseover="this.style.color='var(--primary-red)'" onmouseout="this.style.color='#ccc'">Home</a></li>
+                    <li><a href="#about" style="transition:0.3s;" onmouseover="this.style.color='var(--primary-red)'" onmouseout="this.style.color='#ccc'">About Us</a></li>
+                    <li><a href="#countries" style="transition:0.3s;" onmouseover="this.style.color='var(--primary-red)'" onmouseout="this.style.color='#ccc'">Top Destinations</a></li>
+                    <li><a href="#" onclick="openConsultModal()" style="transition:0.3s; color:var(--teal);">Book Consultation</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem;">Contact Information</h3>
+                <ul style="display:flex; flex-direction:column; gap:15px; font-size:0.95rem;">
+                    <li style="display:flex; gap:10px;"><strong style="color:var(--primary-red);">📍</strong> Top Floor, Swan Global Tower, Hyderabad, India 500034</li>
+                    <li style="display:flex; gap:10px;"><strong style="color:var(--primary-red);">📞</strong> <a href="tel:+919000329999">+91-9000329999</a></li>
+                    <li style="display:flex; gap:10px;"><strong style="color:var(--primary-red);">✉️</strong> <a href="mailto:info@swanglobal.com">info@swanglobal.com</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="border-top: 1px solid #1f242e; padding-top: 2rem; text-align: center; font-size: 0.85rem;">
+            &copy; 2026 Swan Global Studies. All Rights Reserved. Designed by <span style="color:var(--primary-red); font-weight:700;">Absolute Partners</span>.
+        </div>
+    </footer>
+
+    <!-- MODAL OVERLAY (FOR COUNTRIES) -->
+    <div class="modal-overlay" id="countryModal">
+        <button class="close-btn" onclick="closeModal('countryModal')">×</button>
+        <div class="modal-content">
+            <div class="modal-hero">
+                <img id="m-img" src="" alt="Country">
+                <div class="overlay-dark"></div>
+                <h1 style="font-size: 4rem; z-index: 2; margin-bottom:10px;" id="m-flag"></h1>
+                <h2 style="font-size: 3rem; z-index: 2;" id="m-title"></h2>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="career-box">
+                        <h3 style="font-size: 1.3rem; margin-bottom:1rem; color: var(--teal);">💼 Career Aspects (PSW)</h3>
+                        <p id="m-career" style="color: #555; margin-bottom:1rem;"></p>
+                        <strong style="color: #25D366; font-size: 1.1rem;" id="m-salary"></strong>
+                    </div>
+
+                    <h3 style="font-size: 1.3rem; margin-bottom:1rem;">📍 Admission Roadmap</h3>
+                    <div id="m-roadmap"></div>
+                </div>
+
+                <div class="modal-right">
+                    <div class="form-box">
+                        <h3 style="font-size: 1.5rem; margin-bottom:0.5rem; color:var(--teal);">Fast-Track Registration</h3>
+                        <p style="color: #a1a1aa; font-size:0.9rem; margin-bottom:2rem;">Apply for premium priority consulting today.</p>
+                        <form id="regForm">
+                            <input type="text" class="form-input" placeholder="Full Name" required>
+                            <input type="email" class="form-input" placeholder="Email Address" required>
+                            <input type="tel" class="form-input" placeholder="Phone Number" required>
+                            <select class="form-input" required>
+                                <option value="">Desired Course</option>
+                                <option value="Bachelors">Bachelors Degree</option>
+                                <option value="Masters">Masters Degree</option>
+                                <option value="MBA">MBA Program</option>
+                            </select>
+                            <button type="submit" class="btn-primary btn-teal" style="width: 100%;">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🚨 NEW: GLOBAL CONSULTATION MODAL 🚨 -->
+    <div class="modal-overlay" id="consultModal">
+        <button class="close-btn" onclick="closeModal('consultModal')">×</button>
+        <div class="modal-content" style="max-width: 500px; padding: 40px; text-align: center;">
+            <h2 style="font-size: 2rem; font-weight: 800; color: var(--teal); margin-bottom: 10px;">Book Fast-Track Consultation</h2>
+            <p style="color: #555; margin-bottom: 30px;">Speak directly with our top experts to secure your admission and scholarships.</p>
+            
+            <form id="consultForm" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" class="form-input" placeholder="Your Full Name" style="background:#f9fafb; color:#000; border: 1px solid #ddd;" required>
+                <input type="email" class="form-input" placeholder="Your Email Address" style="background:#f9fafb; color:#000; border: 1px solid #ddd;" required>
+                <input type="tel" class="form-input" placeholder="Your Phone Number" style="background:#f9fafb; color:#000; border: 1px solid #ddd;" required>
+                
+                <select class="form-input" style="background:#f9fafb; color:#000; border: 1px solid #ddd;" required>
+                    <option value="">Select Dream Destination</option>
+                    <option value="Australia">Australia</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                </select>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-top: 10px;">Confirm & Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🚨 NEW: COURSE INFO MODAL 🚨 -->
+    <div class="modal-overlay" id="courseModal">
+        <button class="close-btn" onclick="closeModal('courseModal')">×</button>
+        <div class="modal-content" style="max-width: 800px; border-top: 8px solid var(--primary-red);">
+            <div style="padding: 3rem;">
+                <h4 style="color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" id="c-badge"></h4>
+                <h1 style="font-size: 2.8rem; font-weight: 800; color: var(--black); margin-bottom: 1.5rem; line-height: 1.1;" id="c-title"></h1>
+                
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.7; margin-bottom: 2.5rem;" id="c-desc"></p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+                    <div style="background: var(--light-grey); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--teal);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; display:flex; align-items:center; gap:8px;">📈 Future Scope & Demand</h3>
+                        <p id="c-demand" style="color:#444; font-size:0.95rem;"></p>
+                    </div>
+                    
+                    <div style="background: var(--light-grey); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #25D366;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; display:flex; align-items:center; gap:8px;">💰 Expected Salaries</h3>
+                        <p id="c-salary" style="color:#444; font-size:0.95rem; font-weight:600;"></p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.4rem; color: var(--black); margin-bottom: 15px;">🎓 Academic & Career Roadmap</h3>
+                    <div id="c-roadmap"></div>
+                </div>
+
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.4rem; color: var(--black); margin-bottom: 15px;">Target Graduate Roles</h3>
+                    <div id="c-roles" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
+                </div>
+
+                <div style="background: var(--black); color: white; padding: 2rem; border-radius: 16px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Accelerate Your Career</h3>
+                    <p style="opacity: 0.8; margin-bottom: 20px;">Let us guarantee your admission into top-ranked global universities for this course.</p>
+                    <button onclick="closeModal('courseModal'); openConsultModal();" class="btn-primary" style="background-color: var(--primary-red);">Apply For This Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const destinations = [
+            { 
+                name: 'Australia', flag: '🇦🇺', 
+                image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=800',
+                roadmap: ['English Proficiency (IELTS 6.5+)', 'Course Selection & Go8 Universities', 'Admissions & Offer Letter', 'Financial Readiness & Proofs', 'Genuine Student (GS) Evaluation', 'OSHC Payment & CoE Issuance', 'Visa Subclass 500 Lodgement', 'Pre-Departure Briefing'],
+                career: 'Up to 4-5 years of Post-Study Work Visa. Massive demand in Healthcare, IT, and Engineering.',
+                salary: '💸 Avg. Starting: $75,000+ AUD/yr'
+            },
+            { 
+                name: 'United Kingdom', flag: '🇬🇧', 
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800',
+                roadmap: ['Test Prep & Academic Profiling', 'UCAS / Direct Application to Russell Group', 'Credibility Interview & Conditional Offer', '28-Day Financial Matured Funds', 'CAS Letter Issuance', 'TB Test & IHS Health Surcharge', 'Tier 4 Visa Filing & Biometrics', 'Flight & Landing Support'],
+                career: '2-Year Graduate Route (PSW). Strong hiring globally in Finance, Tech, and NHS.',
+                salary: '💸 Avg. Starting: £35,000+ /yr'
+            },
+            { 
+                name: 'USA', flag: '🇺🇸', 
+                image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=800',
+                roadmap: ['Standardized Tests (GRE/GMAT & TOEFL)', 'Strategic Shortlisting (Ambitious/Reach/Safe)', 'Stellar Essays & Application Submission', 'Secure Admits & Financial Show', 'I-20 Form Processing', 'SEVIS Fee & DS-160 Form', 'F1 Visa Consulate Mock Interviews', 'The American Dream & Networking'],
+                career: 'Up to 3-years STEM OPT. Peak global salaries in Tech, AI, Management, and Engineering.',
+                salary: '💸 Avg. Starting: $85,000+ USD/yr'
+            },
+            { 
+                name: 'Canada', flag: '🇨🇦', 
+                image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=800',
+                roadmap: ['Language Proficiency (IELTS 6.5+)', 'Program Selection & Public DLIs', 'College/University Application', 'Letter of Acceptance (LOA) Issuance', 'Financials & Exact GIC Setup', 'Provincial Attestation Letter (PAL) & Medicals', 'SDS Visa Processing', 'Fly to Canada & Integration'],
+                career: 'Up to 3-Year Post-Graduation Work Permit (PGWP). Clear points-based Express Entry PR pathways.',
+                salary: '💸 Avg. Starting: $65,000+ CAD/yr'
+            },
+            { 
+                name: 'New Zealand', flag: '🇳🇿', 
+                image: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?q=80&w=800',
+                roadmap: ['English Requirements (PTE/IELTS)', 'University Application & Profile Match', 'Conditional Offer & Financial Documentation', 'Visa Approval in Principle (AIP)', 'Fund Transfer Scheme (FTS) Setup', '1st Year Tuition Payment to University', 'Final eVisa Issuance', 'Kia Ora! Cultural Brief & Departure'],
+                career: 'Up to 3-Year PSW Visa. Safe environment with massive demand in Green List occupations.',
+                salary: '💸 Avg. Starting: $70,000+ NZD/yr'
+            }
+        ];
+
+        const grid = document.getElementById('destGrid');
+        destinations.forEach((d, i) => {
+            grid.innerHTML += `
+                <div class="dest-card" onclick="openModal(${i})">
+                    <div style="height:180px; position:relative;">
+                        <img loading="lazy" src="${d.image}" class="dest-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <h3><span style="font-size:1.5rem">${d.flag}</span> ${d.name}</h3>
+                </div>
+            `;
+        });
+
+        const countryModal = document.getElementById('countryModal');
+        const courseModal = document.getElementById('courseModal');
+
+        // Course Modal Logic
+        const courseData = [
+            {
+                title: 'Data Science & AI', badge: 'High ROI',
+                desc: 'Dive into the world of artificial intelligence, machine learning, and big data analysis. As every global sector digitalizes, this course guarantees unparalleled job security and staggering OPT/PSW visa extensions.',
+                demand: 'Exponential 35% projected job growth globally by 2030, making it the most aggressively recruited field.',
+                salary: '$90,000 - $150,000+ USD/yr',
+                roles: ['Data Scientist', 'Machine Learning Engineer', 'AI Architect', 'Big Data Analyst']
+            },
+            {
+                title: 'Global MBA Programs', badge: 'Executive Level',
+                desc: 'Transform into a formidable corporate leader. Build an impregnable global network, receive elite C-suite mentorship, and master advanced financial and operations strategy.',
+                demand: 'A monumental post-pandemic rebound in corporate demand means MBA grads are securing leadership roles faster than ever.',
+                salary: '$120,000 - $200,000+ USD/yr',
+                roles: ['Management Consultant', 'Product Manager', 'Investment Banker', 'Financial Controller']
+            },
+            {
+                title: 'Healthcare & Nursing', badge: 'Fast-Track PR',
+                desc: 'A noble path yielding guaranteed employment. Benefit from direct, prioritized immigration pathways globally due to catastrophic systemic shortages of licensed health professionals.',
+                demand: 'The absolute #1 most securely growing sector across Australia, Canada, and the UK.',
+                salary: '$70,000 - $110,000+ USD/yr',
+                roles: ['Registered Nurse', 'Public Health Administrator', 'Therapist', 'Health Tech Systems Analyst']
+            },
+            {
+                title: 'Core Engineering', badge: 'Paid Co-ops',
+                desc: 'Architect the physical future. Study green energy, sustainable civil engineering, and autonomous robotics inside world-class facilities and score highly lucrative paid undergraduate internships.',
+                demand: 'Massive government infrastructure bills in the USA and Canada guarantee millions of continuous engineering vacancies.',
+                salary: '$85,000 - $130,000+ USD/yr',
+                roles: ['Civil Engineer', 'Mechanical & Robotics Specialist', 'Project Manager', 'Process Engineer']
+            },
+            {
+                title: 'Business Analytics', badge: 'Top Careers',
+                desc: 'Bridge the critical gap between raw computer data arrays and agile business leadership strategy. Every major corporation relies exclusively on business analysts to drive profit.',
+                demand: 'Required intensely by over 90% of Fortune 500 corporations in 2026.',
+                salary: '$80,000 - $125,000+ USD/yr',
+                roles: ['Business Analyst', 'Quantitative Analyst', 'Strategy Operations Lead']
+            },
+            {
+                title: 'Hospitality & Tourism', badge: 'Global Access',
+                desc: 'Pioneer a hyper-lucrative international lifestyle. Master international operational strategy, luxury service handling, and grand-scale event coordination.',
+                demand: 'A staggering explosion in border reopenings has generated massive skill gaps in the hotel sector.',
+                salary: '$60,000 - $100,000+ USD/yr',
+                roles: ['Hotel General Manager', 'Global Event Director', 'Resort Coordinator']
+            }
+        ];
+
+        const genericRoadmap = ['Core Foundations & Skill Building', 'Advanced Specialization Modules', 'Paid Internship / Industry Co-op', 'Graduation & Seamless Post-Study Visa'];
+
+        function openCourseModal(index) {
+            const data = courseData[index];
+            document.getElementById('c-title').innerText = data.title;
+            document.getElementById('c-badge').innerText = data.badge;
+            document.getElementById('c-desc').innerText = data.desc;
+            document.getElementById('c-demand').innerText = data.demand;
+            document.getElementById('c-salary').innerText = data.salary;
+            
+            // Generate Academic Roadmap
+            let cRoadHT = '<div class="timeline-vertical">';
+            genericRoadmap.forEach((step, i) => {
+                cRoadHT += `
+                <div class="timeline-v-step">
+                    <div class="timeline-v-num">${i+1}</div>
+                    <div class="timeline-v-text">${step}</div>
+                </div>`;
+            });
+            cRoadHT += '</div>';
+            document.getElementById('c-roadmap').innerHTML = cRoadHT;
+
+            let html = '';
+            data.roles.forEach(role => {
+                html += `<span style="background: var(--dark-grey); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${role}</span>`;
+            });
+            document.getElementById('c-roles').innerHTML = html;
+            
+            courseModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Country Modal Logic
+        function openModal(index) {
+            const data = destinations[index];
+            document.getElementById('m-img').src = data.image;
+            document.getElementById('m-flag').innerText = data.flag;
+            document.getElementById('m-title').innerText = `Study in ${data.name}`;
+            document.getElementById('m-career').innerText = data.career;
+            document.getElementById('m-salary').innerText = data.salary;
+            
+            // Professional Vertical Country Roadmap
+            let roadHTML = '<div class="timeline-vertical">';
+            data.roadmap.forEach((step, i) => {
+                roadHTML += `
+                <div class="timeline-v-step">
+                    <div class="timeline-v-num">${i+1}</div>
+                    <div class="timeline-v-text">${step}</div>
+                </div>`;
+            });
+            roadHTML += '</div>';
+            document.getElementById('m-roadmap').innerHTML = roadHTML;
+            
+            countryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Global Consultation Modal Logic
+        function openConsultModal() {
+            consultModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Shared Close Logic
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            if(e.target === countryModal) closeModal('countryModal');
+            if(e.target === consultModal) closeModal('consultModal');
+            if(e.target === courseModal) closeModal('courseModal');
+        });
+
+        // Form Submit Alerts
+        document.getElementById('regForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your application is submitted successfully! Our expert will call you shortly.');
+            closeModal('countryModal');
+            e.target.reset();
+        });
+
+        document.getElementById('consultForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your Consultation is Booked Successfully! We will contact you within 24 hours.');
+            closeModal('consultModal');
+            e.target.reset();
+        });
+
+        // Scroll Animations (Fade-in)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

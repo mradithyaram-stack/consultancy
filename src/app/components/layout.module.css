@@ -1,0 +1,183 @@
+/* TopStrip */
+.topStrip {
+  background-color: var(--black);
+  color: var(--light-grey);
+  padding: 8px 0;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.topStripContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topStripLeft {
+  display: flex;
+  gap: 20px;
+}
+
+.topStripLeft span, .topStripLeft a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topStripRight a {
+  color: #25D366;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 999;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span {
+  color: var(--primary-red);
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navLinks a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--dark-grey);
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: var(--primary-red);
+}
+
+.mobileMenuBtn {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--black);
+}
+
+/* Floating Actions */
+.floatingActions {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  font-size: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab:hover {
+  transform: scale(1.15);
+}
+
+.fabWhatsapp { background-color: #25D366; }
+.fabCall { background-color: var(--primary-red); }
+
+/* Footer */
+.footer {
+  background-color: var(--black);
+  color: var(--light-grey);
+  padding: 5rem 0 2rem;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footerCol h4 {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footerCol ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerCol a {
+  transition: color 0.2s;
+}
+
+.footerCol a:hover {
+  color: var(--primary-red);
+}
+
+.footerCopy {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 768px) {
+  .topStripContainer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .topStripLeft {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .navLinks {
+    display: none; /* Hide on mobile for now */
+  }
+  .mobileMenuBtn {
+    display: block;
+  }
+}
