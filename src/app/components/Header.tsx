@@ -106,7 +106,7 @@ export default function Header() {
           <Link href="#contact" style={{ fontWeight: 500, color: '#2b2d42', fontSize: '0.95rem' }}>Contact</Link>
         </nav>
         <Link 
-          href="#contact" 
+          href="#register" 
           className="btn-primary" 
           style={{ borderRadius: '50px', padding: '12px 28px', backgroundColor: '#d90429', color: '#fff', fontWeight: 700, boxShadow: '0 8px 20px rgba(217, 4, 41, 0.3)' }}
         >

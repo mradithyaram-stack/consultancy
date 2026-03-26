@@ -54,7 +54,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}
           >
-            <Link href="#contact" className="btn-primary" style={{ padding: '16px 32px', borderRadius: '50px', fontSize: '1.1rem', backgroundColor: '#d90429' }}>
+            <Link href="#register" className="btn-primary" style={{ padding: '16px 32px', borderRadius: '50px', fontSize: '1.1rem', backgroundColor: '#d90429' }}>
               Book Free Consultation
             </Link>
             <Link href="https://wa.me/919000329999" target="_blank" style={{ padding: '16px 32px', borderRadius: '50px', fontSize: '1.1rem', backgroundColor: '#ffffff', color: '#0d1117', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
