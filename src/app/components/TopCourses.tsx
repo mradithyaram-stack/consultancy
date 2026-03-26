@@ -34,18 +34,6 @@ const topCourses = [
     title: 'Sustainable Energy & Environmental Tech',
     matter: 'Renewable energy, climate science, and sustainable engineering are top growth areas. Gain access to global research centers with project-led training and strong placement ties.',
     image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    icon: '🧬',
-    title: 'Biotechnology & Life Sciences',
-    matter: 'Break into research and development in gene therapy, pharma, and bioinformatics. Top universities in the UK and USA offer practical lab access and industry mentorship.',
-    image: 'https://images.unsplash.com/photo-1549562403-78c94f4f96a0?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    icon: '🖥️',
-    title: 'UX/UI & Product Design',
-    matter: 'Design the future through digital experience design, mobile app creativity and human-centered product strategy. High salaries and fast-track career mobility in North America and Europe.',
-    image: 'https://images.unsplash.com/photo-1533055640609-24b498cdfa20?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
