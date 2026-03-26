@@ -50,6 +50,14 @@ const topCourses = [
 ];
 
 export default function TopCourses() {
+  const openContact = () => {
+    window.location.hash = '#contact';
+    setTimeout(() => {
+      const el = document.getElementById('registrationSection');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
   return (
     <section id="courses" className="section-padding" style={{ backgroundColor: '#ffffff', overflow: 'hidden' }}>
       <div className="container">
@@ -72,6 +80,7 @@ export default function TopCourses() {
           {topCourses.map((course, index) => (
             <motion.div
               key={index}
+              onClick={openContact}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -83,7 +92,8 @@ export default function TopCourses() {
                 borderRadius: '20px',
                 border: '1px solid #edf2f4',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
               }}
             >
               {course.image ? (

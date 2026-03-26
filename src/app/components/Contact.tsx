@@ -1,9 +1,36 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
+  const [showRegistration, setShowRegistration] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      return hash === '#contact' || hash === '#register';
+    }
+    return false;
+  });
+
+  const openRegistration = () => {
+    setShowRegistration(true);
+    setTimeout(() => {
+      const el = document.getElementById('registrationSection');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  useEffect(() => {
+    const listener = () => {
+      if (window.location.hash === '#contact' || window.location.hash === '#register') {
+        setShowRegistration(true);
+      }
+    };
+
+    window.addEventListener('hashchange', listener);
+    return () => window.removeEventListener('hashchange', listener);
+  }, []);
+
   return (
     <>
       {/* 9. CALL TO ACTION (Lead Section) */}
@@ -22,9 +49,9 @@ export default function Contact() {
               Get FREE expert guidance today!
             </p>
             <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="#contact" style={{ backgroundColor: '#0d1117', color: '#ffffff', padding: '15px 30px', borderRadius: '50px', fontWeight: 700, fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
+              <button onClick={openRegistration} style={{ backgroundColor: '#0d1117', color: '#ffffff', padding: '15px 30px', borderRadius: '50px', fontWeight: 700, fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)', border: 'none', cursor: 'pointer' }}>
                 Book Free Consultation
-              </Link>
+              </button>
               <Link href="tel:+919000329999" style={{ backgroundColor: '#ffffff', color: '#d90429', padding: '15px 30px', borderRadius: '50px', fontWeight: 700, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 Call Now (+91-9000329999)
               </Link>
@@ -83,6 +110,29 @@ export default function Contact() {
             </div>
 
           </div>
+
+          {showRegistration && (
+            <div id="registrationSection" style={{ marginTop: '3rem', backgroundColor: '#fff', borderRadius: '24px', border: '1px solid #e2e8f0', padding: '2rem', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+              <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem', color: '#0d1117' }}>Free Consultation Registration</h3>
+              <p style={{ marginBottom: '1.5rem', color: '#64748b', lineHeight: 1.6 }}>
+                Share your details once and our expert counsellor will contact you for a fast, personalized action plan.
+              </p>
+              <form onSubmit={(e) => { e.preventDefault(); alert('Registration submitted! Our team will contact you'); }} style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                <input required type="text" placeholder="Full Name" style={{ width: '100%', padding: '14px 16px', borderRadius: '10px', border: '1px solid #d1d5db', outline: 'none' }} />
+                <input required type="email" placeholder="Email Address" style={{ width: '100%', padding: '14px 16px', borderRadius: '10px', border: '1px solid #d1d5db', outline: 'none' }} />
+                <input required type="tel" placeholder="Phone Number" style={{ width: '100%', padding: '14px 16px', borderRadius: '10px', border: '1px solid #d1d5db', outline: 'none' }} />
+                <select required style={{ width: '100%', padding: '14px 16px', borderRadius: '10px', border: '1px solid #d1d5db', backgroundColor: '#fff' }}>
+                  <option value="">Desired Course / Program</option>
+                  <option value="bachelors">Bachelors</option>
+                  <option value="masters">Masters</option>
+                  <option value="mba">MBA</option>
+                  <option value="phd">PhD</option>
+                  <option value="short-term">Short-term Certificate</option>
+                </select>
+                <button type="submit" style={{ backgroundColor: '#d90429', color: '#fff', fontWeight: 700, padding: '14px', borderRadius: '10px', border: 'none', cursor: 'pointer' }}>Submit Registration</button>
+              </form>
+            </div>
+          )}
         </div>
       </section>
     </>
