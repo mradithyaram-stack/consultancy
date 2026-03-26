@@ -3,11 +3,11 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const successStories = [
-  { name: 'Rajesh', country: 'Australia', image: 'https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=800' },
-  { name: 'Priya', country: 'USA', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800' },
-  { name: 'Aman', country: 'New Zealand', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800' },
-  { name: 'Neha', country: 'UK', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800' },
-  { name: 'Karthik', country: 'Canada', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800' }
+  { name: 'Rajesh', country: 'Australia', quote: 'From initial profile review to visa success, the team was beside me every step.', image: 'https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=800' },
+  { name: 'Priya', country: 'USA', quote: 'I secured my dream university and scholarship through their strategic guidance.', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800' },
+  { name: 'Aman', country: 'New Zealand', quote: 'The process was seamless and transparent—an experience I highly recommend.', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800' },
+  { name: 'Neha', country: 'UK', quote: 'Professional support, timely updates, and 100% result focus made the difference.', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800' },
+  { name: 'Karthik', country: 'Canada', quote: 'I got into top universities and landed a placement offer before graduating.', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800' }
 ];
 
 export default function Testimonials() {
@@ -83,7 +83,7 @@ export default function Testimonials() {
                 style={{
                   flex: '0 0 calc(33.333% - 1.33rem)',
                   minWidth: '280px',
-                  height: '280px',
+                  height: '320px',
                   scrollSnapAlign: 'center',
                   borderRadius: '16px',
                   overflow: 'hidden',
@@ -95,8 +95,18 @@ export default function Testimonials() {
                 <img 
                   src={story.image} 
                   alt={`${story.name} in ${story.country}`} 
-                  style={{ width: '100%', height: 'calc(100% - 50px)', objectFit: 'cover' }} 
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800';
+                  }}
+                  style={{ width: '100%', height: 'calc(100% - 70px)', objectFit: 'cover' }} 
                 />
+                <div style={{ padding: '16px', backgroundColor: '#111', minHeight: '70px' }}>
+                  <p style={{ margin: 0, color: '#f8fafc', fontSize: '0.95rem', lineHeight: 1.4 }}>
+                    “{story.quote}”
+                  </p>
+                </div>
                 
                 {/* Name & Country Banner at bottom */}
                 <div style={{ 

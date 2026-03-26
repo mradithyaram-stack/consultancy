@@ -13,10 +13,10 @@ export default function Alumni() {
           style={{ textAlign: 'center', marginBottom: '3rem' }}
         >
           <h2 className="section-title">
-            Our Global <span className="text-gradient">Alumni Network</span>
+            Proud <span className="text-gradient">Alumni</span> & Global Impact
           </h2>
-          <p style={{ color: '#64748b', fontSize: '1.15rem', maxWidth: '600px', margin: '0 auto' }}>
-            Join thousands of successful students who have transformed their lives by securing placements at top universities worldwide.
+          <p style={{ color: '#64748b', fontSize: '1.15rem', maxWidth: '640px', margin: '0 auto' }}>
+            We celebrate every graduate who has crossed borders, built careers, and become ambassadors of excellence. Our alumni community stands for trust, consistency, and life-changing outcomes.
           </p>
         </motion.div>
         

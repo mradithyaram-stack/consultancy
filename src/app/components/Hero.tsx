@@ -15,6 +15,33 @@ export default function Hero() {
       color: '#ffffff',
       overflow: 'hidden'
     }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      ` }} />
+      <div style={{
+        position: 'absolute',
+        top: '20px',
+        right: '20px',
+        width: '120px',
+        height: '120px',
+        borderRadius: '50%',
+        border: '3px solid rgba(217,4,41,0.8)',
+        boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+        background: 'radial-gradient(circle at 30% 30%, #3f83f8 0%, #0e2146 65%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        animation: 'rotateGlobe 16s linear infinite',
+        zIndex: 15
+      }}>
+        <div style={{
+          width: '72px',
+          height: '72px',
+          borderRadius: '50%',
+          border: '2px dashed rgba(255,255,255,0.65)',
+          background: 'radial-gradient(circle at 35% 35%, #8fc1ff 0%, rgba(255,255,255,0.08) 70%)'
+        }} />
+      </div>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', zIndex: 10, paddingTop: '100px', paddingBottom: '100px' }}>
         
         {/* Left Content */}

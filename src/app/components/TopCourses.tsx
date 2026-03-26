@@ -22,6 +22,16 @@ const topCourses = [
     icon: '⚙️',
     title: 'Core & Advanced Engineering',
     matter: 'From Civil and Mechanical to Aerospace and Robotics. Study in world-class facilities with massive industry tie-ups ensuring paid internships (Co-ops) during your studies and seamless post-study corporate placements.'
+  },
+  {
+    icon: '🔐',
+    title: 'Cybersecurity & Cloud Security',
+    matter: 'The cybersecurity workforce gap is growing. Our pathway focuses on CISSP, CISM, and SANS-aligned programs in the US, Canada, and UK where starting pay often exceeds $100,000.'
+  },
+  {
+    icon: '🌱',
+    title: 'Sustainable Energy & Environmental Tech',
+    matter: 'Renewable energy, climate science, and sustainable engineering are top growth areas. Gain access to global research centers with project-led training and strong placement ties.'
   }
 ];
 
