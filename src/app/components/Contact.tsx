@@ -113,6 +113,9 @@ export default function Contact() {
 
           {showRegistration && (
             <div id="registrationSection" style={{ marginTop: '3rem', backgroundColor: '#fff', borderRadius: '24px', border: '1px solid #e2e8f0', padding: '2rem', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+              <div style={{ height: '220px', borderRadius: '18px', overflow: 'hidden', marginBottom: '1.5rem', border: '1px solid #d1d5db' }}>
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80" alt="Study Abroad Support" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
               <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem', color: '#0d1117' }}>Free Consultation Registration</h3>
               <p style={{ marginBottom: '1.5rem', color: '#64748b', lineHeight: 1.6 }}>
                 Share your details once and our expert counsellor will contact you for a fast, personalized action plan.
